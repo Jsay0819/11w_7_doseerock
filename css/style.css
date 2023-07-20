@@ -46,13 +46,40 @@ body {
   max-width: 1420px;
   margin: 0 auto;
 }
-
+/* 위로가기 */
+.gotop {
+  display: flex;
+  right: 20px;
+  bottom: 20px;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+  background-color: #3056a1;
+  border: 0;
+  color: #ffff;
+  font-style: 28px;
+  z-index: 99;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: bottom 0.3s visibility 0.3s opacity 0.3s;
+}
+.gotop.active {
+  bottom: 20px;
+  visibility: visible;
+  opacity: 1;
+}
+.gotop.active-footer {
+  bottom: 320px;
+}
 /* 레이아웃 */
 .wrap {
   position: relative;
   display: block;
 }
-
 /* 상단 */
 .header {
   position: fixed;

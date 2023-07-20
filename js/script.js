@@ -149,8 +149,38 @@ window.onload = function () {
     },
   });
   // business-modal 기능
-  const businessModal = document.querySelector(".business-modal")
-  businessModal.addEventListener("click",function(){
-    businessModal.style.display = "none"
-  })
+  const businessModal = document.querySelector(".business-modal");
+  businessModal.addEventListener("click", function () {
+    businessModal.style.display = "none";
+  });
+  // 위로가기 스크롤바 구현
+  const gotop = document.querySelector(".gotop");
+  gotop.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+  // footer의 상단위치 픽셀값 파악.
+  let footer = document.querySelector(".footer");
+  let footerY = footer.offsetTop;
+  let waypoint_footer = new Waypoint({
+    element: document.querySelector(".footer"),
+    handler: function (direction) {
+      if (direction === "down") {
+        gotop.classList.add("active-footer");
+      } else {
+        gotop.classList.remove("active-footer");
+      }
+    },
+    offset: "95%",
+  });
+  let waypoint_service = new Waypoint({
+    element: document.querySelector(".service"),
+    handler: function (direction) {
+      if (direction === "down") {
+        gotop.classList.add("active");
+      } else {
+        gotop.classList.remove("active");
+      }
+    },
+    offset: "80%",
+  });
 };
